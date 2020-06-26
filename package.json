@@ -49,13 +49,13 @@
   "author": "Hidetaka Okamoto",
   "module": "dist/core.esm.js",
   "devDependencies": {
-    "@ask-utils/test": "^3.9.0",
+    "@ask-utils/test": "3.9.0",
     "@commitlint/cli": "9.0.1",
     "@commitlint/config-conventional": "9.0.1",
-    "husky": "^4.2.5",
-    "tsdx": "^0.13.2",
-    "tslib": "^2.0.0",
-    "typescript": "^3.9.5"
+    "husky": "4.2.5",
+    "tsdx": "0.13.2",
+    "tslib": "2.0.0",
+    "typescript": "3.9.5"
   },
   "dependencies": {
     "@ask-utils/core": "^3.9.0",
