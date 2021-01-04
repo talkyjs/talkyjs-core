@@ -7,7 +7,7 @@
       "requireCommits": false,
       "addUntrackedFiles": false,
       "commit": true,
-      "commitMessage": "chore: Release ${version}",
+      "commitMessage": "chore: release ${version}",
       "tag": true,
       "tagAnnotation": "Release ${version}",
       "push": false
