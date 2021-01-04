@@ -1,5 +1,7 @@
-
 # @talkyjs/core
+[![npm version](https://badge.fury.io/js/%40talkyjs%2Fcore.png)](https://badge.fury.io/js/%40talkyjs%2Fcore)
+
+Simply Alexa skill framework with ask-sdk.
 
 ## Getting started
 
