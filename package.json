@@ -10,11 +10,11 @@
     "node": ">=10"
   },
   "bugs": {
-    "url": "https://github.com/ask-utils/talkyjs-core/issues"
+    "url": "https://github.com/talkyjs/talkyjs-core/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ask-utils/talkyjs-core.git"
+    "url": "https://github.com/talkyjs/talkyjs-core.git"
   },
   "publishConfig": {
     "access": "public"
@@ -31,6 +31,7 @@
     "doc:export": "npm run compodoc && touch ./docs/.nojekyll",
     "doc:serve": "npm run compodoc -- -s"
   },
+  "homepage": "https://talkyjs.dev",
   "peerDependencies": {},
   "husky": {
     "hooks": {
@@ -38,6 +39,9 @@
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
+  "keywords": [
+    "talkyjs", "alexa", "skill"
+  ],
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
       "tsdx lint --fix",
@@ -51,7 +55,7 @@
     "trailingComma": "es5"
   },
   "name": "@talkyjs/core",
-  "author": "Hidetaka Okamoto",
+  "author": "Talkyjs Teams",
   "module": "dist/core.esm.js",
   "devDependencies": {
     "@ask-utils/test": "3.11.0",
