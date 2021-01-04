@@ -1,3 +1,12 @@
+## [1.0.3](https://github.com/talkyjs/talkyjs-core/compare/v1.0.2...v1.0.3) (2021-01-04)
+
+
+### Bug Fixes
+
+* release-it json ([ec5936b](https://github.com/talkyjs/talkyjs-core/commit/ec5936bb2a0d112021e8686b40da25a8a9f20639))
+
+
+
 ## [1.0.2](https://github.com/talkyjs/talkyjs-core/compare/v1.0.1...v1.0.2) (2021-01-04)
 
 
