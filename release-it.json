@@ -1,0 +1,31 @@
+{
+    "hooks": {},
+    "git": {
+      "requireCleanWorkingDir": true,
+      "requireBranch": false,
+      "requireUpstream": false,
+      "requireCommits": false,
+      "addUntrackedFiles": false,
+      "commit": true,
+      "commitMessage": "Release ${version}",
+      "tag": true,
+      "tagAnnotation": "Release ${version}",
+      "push": false
+    },
+    "npm": {
+      "publish": true
+    },
+    "github": {
+      "release": true,
+      "releaseName": "Release ${version}",
+      "releaseNotes": true,
+      "tokenRef": "GITHUB_TOKEN",
+      "skipChecks": false
+    },
+    "plugins": {
+        "@release-it/conventional-changelog": {
+          "preset": "angular",
+          "infile": "CHANGELOG.md"
+        }
+      }
+  }
