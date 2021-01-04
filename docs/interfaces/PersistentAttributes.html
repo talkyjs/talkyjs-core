@@ -68,7 +68,7 @@
                                     <a href="../classes/DefaultLogger.html" >DefaultLogger</a>
                                 </li>
                                 <li class="link">
-                                    <a href="../classes/ErrorHandlerService.html"  class="active" >ErrorHandlerService</a>
+                                    <a href="../classes/ErrorHandlerService.html" >ErrorHandlerService</a>
                                 </li>
                                 <li class="link">
                                     <a href="../classes/LoggerService.html" >LoggerService</a>
@@ -123,7 +123,7 @@
                                     <a href="../interfaces/Logger.html" >Logger</a>
                                 </li>
                                 <li class="link">
-                                    <a href="../interfaces/PersistentAttributes.html" >PersistentAttributes</a>
+                                    <a href="../interfaces/PersistentAttributes.html"  class="active" >PersistentAttributes</a>
                                 </li>
                                 <li class="link">
                                     <a href="../interfaces/RouteSituation.html" >RouteSituation</a>
@@ -226,7 +226,7 @@
                                            <a href="../classes/DefaultLogger.html" >DefaultLogger</a>
                                        </li>
                                        <li class="link">
-                                           <a href="../classes/ErrorHandlerService.html"  class="active" >ErrorHandlerService</a>
+                                           <a href="../classes/ErrorHandlerService.html" >ErrorHandlerService</a>
                                        </li>
                                        <li class="link">
                                            <a href="../classes/LoggerService.html" >LoggerService</a>
@@ -281,7 +281,7 @@
                                            <a href="../interfaces/Logger.html" >Logger</a>
                                        </li>
                                        <li class="link">
-                                           <a href="../interfaces/PersistentAttributes.html" >PersistentAttributes</a>
+                                           <a href="../interfaces/PersistentAttributes.html"  class="active" >PersistentAttributes</a>
                                        </li>
                                        <li class="link">
                                            <a href="../interfaces/RouteSituation.html" >RouteSituation</a>
@@ -330,7 +330,7 @@
                    
                    </nav>
                </div>
-               <div class="content class">
+               <div class="content interface">
                    <div class="content-data">
 
 
@@ -338,9 +338,10 @@
 
 
 
+
 <ol class="breadcrumb">
-  <li>Classes</li>
-  <li>ErrorHandlerService</li>
+  <li>Interfaces</li>
+  <li>PersistentAttributes</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -358,195 +359,144 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/handlers/ErrorHandler/ErrorHandler.service.ts</code>
+            <code>src/PersistentAttributesManager/PersistentAttributesManager.service.ts</code>
         </p>
 
 
 
             <section>
-                <h3 id="methods">Methods</h3>
+                <h3 id="inputs">Indexable</h3>
                     <table class="table table-sm table-bordered">
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
-                                    <b><span class="modifier">Public</span> getSupportedLang</b>
-                                </td>
-                            </tr>
-            
-                            <tr>
-                                <td class="col-md-4">
-                                        <span class="modifier-icon method fa fa-play circle">
-                                            <span class="fa fa-circle"></span>
-                                        </span>
-                                    <code>getSupportedLang()</code>
-                                </td>
-                            </tr>
-            
-                            <tr>
-                                <td class="col-md-4">
-                                        <div class="io-description">
-                                            <b>Returns: </b>    <code>void</code>
-            
-                                        </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                            <tr>
-                                <td class="col-md-4">
-                                    <b><span class="modifier">Public</span> findSpeakableLang</b>
-                                </td>
-                            </tr>
-            
-                            <tr>
-                                <td class="col-md-4">
-                                        <span class="modifier-icon method fa fa-play circle">
-                                            <span class="fa fa-circle"></span>
-                                        </span>
-                                    <code>findSpeakableLang(locale: string)</code>
-                                </td>
-                            </tr>
-            
-                            <tr>
-                                <td class="col-md-4">
-                                        <div class="io-description">
-                                            <b>Returns: </b>    <code>string</code>
-            
-                                        </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                            <tr>
-                                <td class="col-md-4">
-                                    <b><span class="modifier">Public</span> canSpeakRequest</b>
-                                </td>
-                            </tr>
-            
-                            <tr>
-                                <td class="col-md-4">
-                                        <span class="modifier-icon method fa fa-play circle">
-                                            <span class="fa fa-circle"></span>
-                                        </span>
-                                    <code>canSpeakRequest(input: HandlerInput)</code>
-                                </td>
-                            </tr>
-            
-                            <tr>
-                                <td class="col-md-4">
-                                        <div class="io-description">
-                                            <b>Returns: </b>    <code>boolean</code>
-            
-                                        </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                            <tr>
-                                <td class="col-md-4">
-                                    <b><span class="modifier">Public</span> getResponse</b>
-                                </td>
-                            </tr>
-            
-                            <tr>
-                                <td class="col-md-4">
-                                        <span class="modifier-icon method fa fa-play circle">
-                                            <span class="fa fa-circle"></span>
-                                        </span>
-                                    <code>getResponse(input: HandlerInput)</code>
-                                </td>
-                            </tr>
-            
-                            <tr>
-                                <td class="col-md-4">
-                                        <div class="io-description">
-                                            <b>Returns: </b>    <code>ErrorResponse</code>
-            
-                                        </div>
+                                    <code>[key: string]:    <code>any</code>
+            </code>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
             </section>
 
-
-            <section>
-                <h3 id="inputs">Properties</h3>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                            <tr>
-                                <td class="col-md-4">
-                                    <b><span class="modifier">Public</span> errorResponses</b>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="col-md-4">
-                                    <span class="modifier-icon fa fa-circle"></span><code>errorResponses:     <code>{ [locale: string]: ErrorResponse; }</code>
-            </bcode>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-            </section>
     </div>
     <div class="tab-pane fade tab-source-code" id="source">
-        <pre><code class="hljs javascript">import { HandlerInput, getLocale } from &#x27;ask-sdk-core&#x27;;
+        <pre><code class="hljs javascript">import { AttributesManager } from &#x27;ask-sdk-core&#x27;;
 
-export type ErrorResponse &#x3D; {
-  speak: string;
-  reprompt: string;
-};
-export class ErrorHandlerService {
-  public static readonly errorResponses: {
-    [locale: string]: ErrorResponse;
-  } &#x3D; {
-    &#x27;ja-JP&#x27;: {
-      speak: &#x27;すみません。うまく聞き取れませんでした。もう一度お願いします。&#x27;,
-      reprompt: &#x27;もう一度、お願いできますか？&#x27;,
-    },
-    en: {
-      speak: &#x27;Sorry I could not understand the meaning. Please tell me again&#x27;,
-      reprompt: &#x27;Could you tell me onece more?&#x27;,
-    },
-  };
+/* eslint-disable @typescript-eslint/no-explicit-any */
+interface Logger {
+  debug(...args: any): void;
+  error(...args: any): void;
+}
 
-  public static getSupportedLang() {
-    return Object.keys(this.errorResponses);
+export interface PersistentAttributes {
+  [key: string]: any;
+}
+
+class DefaultLogger implements Logger {
+  public debug(...args: any[]): void {
+    console.debug(...args);
   }
 
-  public static findSpeakableLang(locale: string): string | undefined {
-    const errorHandlerSupportedLang &#x3D; this.getSupportedLang();
-    const matched &#x3D; errorHandlerSupportedLang.find(target &#x3D;&gt; {
-      if (target &#x3D;&#x3D;&#x3D; locale) return true;
-      const reg &#x3D; new RegExp(target);
-      return reg.test(locale);
-    });
-    return matched;
+  public info(...args: any[]): void {
+    console.info(...args);
   }
 
-  public static canSpeakRequest(input: HandlerInput): boolean {
-    const locale &#x3D; getLocale(input.requestEnvelope);
-    const lang &#x3D; this.findSpeakableLang(locale);
-    return !!lang;
+  public error(...args: any[]): void {
+    console.error(...args);
+  }
+}
+/* eslint-enable @typescript-eslint/no-explicit-any */
+
+let hasUpdated &#x3D; false;
+/**
+ * Simply wrapper of ask-sdk persistentAttributesManager
+ */
+export class PersistentAttributesManager&lt;
+  T extends PersistentAttributes &#x3D; PersistentAttributes
+&gt; {
+  private static instance: PersistentAttributesManager;
+  private readonly logger: Logger &#x3D; new DefaultLogger();
+  protected defaultAttributes?: T &#x3D; undefined;
+
+  public static getInstance&lt;
+    T extends PersistentAttributes &#x3D; PersistentAttributes
+  &gt;(attributesManager: AttributesManager): PersistentAttributesManager&lt;T&gt; {
+    if (!this.instance) {
+      this.instance &#x3D; new PersistentAttributesManager(attributesManager);
+    }
+    return this.instance as PersistentAttributesManager&lt;T&gt;;
   }
 
-  public static getResponse(input: HandlerInput): ErrorResponse {
-    const locale &#x3D; getLocale(input.requestEnvelope);
-    const lang &#x3D; this.findSpeakableLang(locale);
-    if (!lang) return this.errorResponses[&#x27;en&#x27;];
-    return this.errorResponses[lang] || this.errorResponses[&#x27;en&#x27;];
+  protected readonly attributeManager: AttributesManager;
+  public constructor(attributesManager: AttributesManager) {
+    this.attributeManager &#x3D; attributesManager;
+  }
+
+  public async getPersistentAttributes(
+    defaultAttributes?: Partial&lt;T&gt;
+  ): Promise&lt;T&gt; {
+    try {
+      const data &#x3D; await this.attributeManager.getPersistentAttributes();
+      if (data) {
+        const item &#x3D; {
+          ...this.defaultAttributes,
+          ...defaultAttributes,
+          ...data,
+        } as T;
+        this.attributeManager.setPersistentAttributes(item);
+        return item;
+      }
+    } catch (e) {
+      this.logger.debug(e.name);
+      this.logger.error(e);
+    }
+    const defaultAtts &#x3D; {
+      ...this.defaultAttributes,
+      ...defaultAttributes,
+    } as T;
+    this.attributeManager.setPersistentAttributes(defaultAtts);
+    return defaultAtts;
+  }
+
+  /**
+   * Just update persistentAttributes with auto merge exsits props
+   * [IMPORTANT] We have to execure &#x60;save()&#x60;method after update the attributes.
+   * @param attributes
+   * @example
+   * &#x60;&#x60;&#x60;
+   * const persistentAttributesManager &#x3D; PersistentAttributesManager.getInstance(handlerInput.attributesManager)
+   *  await persistentAttributesManager.updatePersistentAttributes({
+   *      name: &#x27;John&#x27;
+   *  })
+   *  await persistentAttributesManager.save()
+   *  &#x60;&#x60;&#x60;
+   */
+  public async updatePersistentAttributes(
+    attributes: Partial&lt;T&gt;
+  ): Promise&lt;void&gt; {
+    try {
+      const data &#x3D; await this.attributeManager.getPersistentAttributes();
+      this.attributeManager.setPersistentAttributes(
+        Object.assign({}, data, attributes)
+      );
+    } catch (e) {
+      this.attributeManager.setPersistentAttributes(attributes);
+    }
+    hasUpdated &#x3D; true;
+  }
+
+  /**
+   * Update attributes if the prop has been updated
+   */
+  public async save(): Promise&lt;void&gt; {
+    if (!hasUpdated) return;
+    await this.attributeManager.savePersistentAttributes();
+    hasUpdated &#x3D; false;
   }
 }
 </code></pre>
     </div>
 </div>
-
 
 
 

@@ -80,7 +80,22 @@
                                     <a href="../classes/RepeatIntentService.html" >RepeatIntentService</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../classes/RequestHandlerFactory.html" >RequestHandlerFactory</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../classes/RouteMatcher.html" >RouteMatcher</a>
+                                </li>
+                                <li class="link">
                                     <a href="../classes/SessionAttributesManager.html" >SessionAttributesManager</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../classes/SessionSituationService.html" >SessionSituationService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../classes/SituationService.html" >SituationService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../classes/SkillConfig.html" >SkillConfig</a>
                                 </li>
                                 <li class="link">
                                     <a href="../classes/SkillFactory.html" >SkillFactory</a>
@@ -109,6 +124,12 @@
                                 </li>
                                 <li class="link">
                                     <a href="../interfaces/PersistentAttributes.html" >PersistentAttributes</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../interfaces/RouteSituation.html" >RouteSituation</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../interfaces/Router.html" >Router</a>
                                 </li>
                                 <li class="link">
                                     <a href="../interfaces/TalkyJSAPIClientConfig.html" >TalkyJSAPIClientConfig</a>
@@ -217,7 +238,22 @@
                                            <a href="../classes/RepeatIntentService.html" >RepeatIntentService</a>
                                        </li>
                                        <li class="link">
+                                           <a href="../classes/RequestHandlerFactory.html" >RequestHandlerFactory</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/RouteMatcher.html" >RouteMatcher</a>
+                                       </li>
+                                       <li class="link">
                                            <a href="../classes/SessionAttributesManager.html" >SessionAttributesManager</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/SessionSituationService.html" >SessionSituationService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/SituationService.html" >SituationService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/SkillConfig.html" >SkillConfig</a>
                                        </li>
                                        <li class="link">
                                            <a href="../classes/SkillFactory.html" >SkillFactory</a>
@@ -246,6 +282,12 @@
                                        </li>
                                        <li class="link">
                                            <a href="../interfaces/PersistentAttributes.html" >PersistentAttributes</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../interfaces/RouteSituation.html" >RouteSituation</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../interfaces/Router.html" >Router</a>
                                        </li>
                                        <li class="link">
                                            <a href="../interfaces/TalkyJSAPIClientConfig.html" >TalkyJSAPIClientConfig</a>
@@ -326,7 +368,7 @@
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
-                                    <code>constructor(undefined: Pick<HandlerInput, "attributesManager" | "requestEnvelope">, config: UserActivityConfig, adapter: UserActivityAdapter)</code>
+                                    <code>constructor(undefined: Pick<HandlerInput, "attributesManager" | "requestEnvelope">, config: UserActivityConfig, options: { adapter?: UserActivityAdapter; dbType?: any; })</code>
                                 </td>
                             </tr>
             
@@ -491,6 +533,36 @@
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
+                                    <b><span class="modifier">Private</span> dbType</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <span class="modifier-icon fa fa-lock"></span><code>dbType:     <code>any</code>
+            </bcode>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b><span class="modifier">Protected</span> defaultAttributes</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <span class="modifier-icon fa fa-lock"></span><code>defaultAttributes:     <code>ActivityAttributes</code>
+            </bcode>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
                                     <b><span class="modifier">Protected</span> requestEnvelope</b>
                                 </td>
                             </tr>
@@ -508,6 +580,7 @@
         <pre><code class="hljs javascript">import { HandlerInput, isNewSession } from &#x27;ask-sdk-core&#x27;;
 import { RequestEnvelope } from &#x27;ask-sdk-model&#x27;;
 import moment from &#x27;moment&#x27;;
+import { isSkillEvent } from &#x27;@ask-utils/core&#x27;;
 import { PersistentAttributesManager } from &#x27;../PersistentAttributesManager&#x27;;
 import {
   UserActivityConfig,
@@ -515,25 +588,44 @@ import {
   UserActivity,
 } from &#x27;./UserActivity.interface&#x27;;
 import { getUnixTime, defaultUserActivityConfig } from &#x27;./UserActivity.utils&#x27;;
+import { SkillConfig } from &#x27;../Config/Config&#x27;;
+import { TalkyJSDBType } from &#x27;framework&#x27;;
 
-export class UserActivityManager extends PersistentAttributesManager&lt;{
+type ActivityAttributes &#x3D; {
   invocationNumber: number;
   lastInvocationTime: number;
-}&gt; {
+  conversationStartAt: number;
+};
+export class UserActivityManager extends PersistentAttributesManager&lt;
+  ActivityAttributes
+&gt; {
   protected readonly adapter?: UserActivityAdapter;
   protected readonly requestEnvelope: RequestEnvelope;
   protected readonly config: UserActivityConfig;
+  private readonly dbType: TalkyJSDBType;
+  protected readonly defaultAttributes: ActivityAttributes &#x3D; {
+    invocationNumber: 0,
+    lastInvocationTime: getUnixTime(),
+    conversationStartAt: getUnixTime(),
+  };
   public constructor(
     {
       attributesManager,
       requestEnvelope,
     }: Pick&lt;HandlerInput, &#x27;attributesManager&#x27; | &#x27;requestEnvelope&#x27;&gt;,
     config: UserActivityConfig &#x3D; defaultUserActivityConfig,
-    adapter?: UserActivityAdapter
+    options?: {
+      adapter?: UserActivityAdapter;
+      dbType?: TalkyJSDBType;
+    }
   ) {
     super(attributesManager);
     this.requestEnvelope &#x3D; requestEnvelope;
-    this.adapter &#x3D; adapter;
+    this.adapter &#x3D; options?.adapter;
+    this.dbType &#x3D;
+      options &amp;&amp; options.dbType
+        ? options.dbType
+        : SkillConfig.getInstance().getDBType();
     this.config &#x3D; config;
   }
 
@@ -541,27 +633,30 @@ export class UserActivityManager extends PersistentAttributesManager&lt;{
    * Check the first skill invocation
    */
   public async isFirstSkillInvocation(): Promise&lt;boolean&gt; {
-    const { invocationNumber } &#x3D; await this.getLastActivity();
-    return invocationNumber &lt;&#x3D; 1;
+    const data &#x3D; await this.getLastActivity();
+    if (!data) return false;
+    return data.invocationNumber &lt;&#x3D; 1;
   }
 
   /**
    * If the user will be returned after churning, it will be true
    */
   public async isReturnedUser(): Promise&lt;boolean&gt; {
-    const { lastInvocationTime } &#x3D; await this.getLastActivity();
-    const diff &#x3D; moment().diff(moment.unix(lastInvocationTime), &#x27;days&#x27;);
+    const data &#x3D; await this.getLastActivity();
+    if (!data) return false;
+    const diff &#x3D; moment().diff(moment.unix(data.lastInvocationTime), &#x27;days&#x27;);
     return diff &gt; this.config.returnedUserDays;
   }
 
   /**
    * Get The user activity
    */
-  public async getLastActivity(): Promise&lt;UserActivity&gt; {
-    const data &#x3D; await this.getPersistentAttributes({
-      invocationNumber: 0,
-      lastInvocationTime: getUnixTime(),
-    });
+  public async getLastActivity(): Promise&lt;UserActivity | null&gt; {
+    if (this.dbType &#x3D;&#x3D;&#x3D; &#x27;none&#x27;) {
+      return null;
+    }
+
+    const data &#x3D; await this.getPersistentAttributes(this.defaultAttributes);
     return data;
   }
 
@@ -570,9 +665,14 @@ export class UserActivityManager extends PersistentAttributesManager&lt;{
    */
   public async trackSkillInvocation(): Promise&lt;void&gt; {
     if (!isNewSession(this.requestEnvelope)) return;
-    const data &#x3D; await this.getLastActivity();
+    if (isSkillEvent(this.requestEnvelope)) return;
+    if (!this.attributeManager) return;
+    const activity &#x3D; await this.getLastActivity();
+    const data &#x3D; activity || this.defaultAttributes;
+    const now &#x3D; getUnixTime();
     data.invocationNumber &#x3D; data.invocationNumber + 1;
-    data.lastInvocationTime &#x3D; getUnixTime();
+    data.lastInvocationTime &#x3D; now;
+    data.conversationStartAt &#x3D; now;
 
     await this.updatePersistentAttributes(data);
 

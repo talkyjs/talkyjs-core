@@ -68,7 +68,7 @@
                                     <a href="../classes/DefaultLogger.html" >DefaultLogger</a>
                                 </li>
                                 <li class="link">
-                                    <a href="../classes/ErrorHandlerService.html"  class="active" >ErrorHandlerService</a>
+                                    <a href="../classes/ErrorHandlerService.html" >ErrorHandlerService</a>
                                 </li>
                                 <li class="link">
                                     <a href="../classes/LoggerService.html" >LoggerService</a>
@@ -95,7 +95,7 @@
                                     <a href="../classes/SituationService.html" >SituationService</a>
                                 </li>
                                 <li class="link">
-                                    <a href="../classes/SkillConfig.html" >SkillConfig</a>
+                                    <a href="../classes/SkillConfig.html"  class="active" >SkillConfig</a>
                                 </li>
                                 <li class="link">
                                     <a href="../classes/SkillFactory.html" >SkillFactory</a>
@@ -226,7 +226,7 @@
                                            <a href="../classes/DefaultLogger.html" >DefaultLogger</a>
                                        </li>
                                        <li class="link">
-                                           <a href="../classes/ErrorHandlerService.html"  class="active" >ErrorHandlerService</a>
+                                           <a href="../classes/ErrorHandlerService.html" >ErrorHandlerService</a>
                                        </li>
                                        <li class="link">
                                            <a href="../classes/LoggerService.html" >LoggerService</a>
@@ -253,7 +253,7 @@
                                            <a href="../classes/SituationService.html" >SituationService</a>
                                        </li>
                                        <li class="link">
-                                           <a href="../classes/SkillConfig.html" >SkillConfig</a>
+                                           <a href="../classes/SkillConfig.html"  class="active" >SkillConfig</a>
                                        </li>
                                        <li class="link">
                                            <a href="../classes/SkillFactory.html" >SkillFactory</a>
@@ -340,7 +340,7 @@
 
 <ol class="breadcrumb">
   <li>Classes</li>
-  <li>ErrorHandlerService</li>
+  <li>SkillConfig</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -358,10 +358,23 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/handlers/ErrorHandler/ErrorHandler.service.ts</code>
+            <code>src/Config/Config.ts</code>
         </p>
 
 
+            <section>
+                <h3 id="constructor">Constructor</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <code>constructor(config: <a href="../classes/SkillConfig.html" >TalkyJSSkillConfig</a>)</code>
+                                </td>
+                            </tr>
+            
+                        </tbody>
+                    </table>
+            </section>
 
             <section>
                 <h3 id="methods">Methods</h3>
@@ -369,16 +382,16 @@
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
-                                    <b><span class="modifier">Public</span> getSupportedLang</b>
+                                    <b><span class="modifier">Private</span> fillDefaultConfigProps</b>
                                 </td>
                             </tr>
             
                             <tr>
                                 <td class="col-md-4">
-                                        <span class="modifier-icon method fa fa-play circle">
-                                            <span class="fa fa-circle"></span>
+                                        <span class="modifier-icon method fa fa-play lock">
+                                            <span class="fa fa-lock"></span>
                                         </span>
-                                    <code>getSupportedLang()</code>
+                                    <code>fillDefaultConfigProps(config: <a href="../classes/SkillConfig.html" >TalkyJSSkillConfig</a>)</code>
                                 </td>
                             </tr>
             
@@ -396,23 +409,23 @@
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
-                                    <b><span class="modifier">Public</span> findSpeakableLang</b>
+                                    <b><span class="modifier">Private</span> updateConfig</b>
                                 </td>
                             </tr>
             
                             <tr>
                                 <td class="col-md-4">
-                                        <span class="modifier-icon method fa fa-play circle">
-                                            <span class="fa fa-circle"></span>
+                                        <span class="modifier-icon method fa fa-play lock">
+                                            <span class="fa fa-lock"></span>
                                         </span>
-                                    <code>findSpeakableLang(locale: string)</code>
+                                    <code>updateConfig(config: <a href="../classes/SkillConfig.html" >TalkyJSSkillConfig</a>)</code>
                                 </td>
                             </tr>
             
                             <tr>
                                 <td class="col-md-4">
                                         <div class="io-description">
-                                            <b>Returns: </b>    <code>string</code>
+                                            <b>Returns: </b>    <code>void</code>
             
                                         </div>
                                 </td>
@@ -423,7 +436,7 @@
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
-                                    <b><span class="modifier">Public</span> canSpeakRequest</b>
+                                    <b><span class="modifier">Public</span> loadConfig</b>
                                 </td>
                             </tr>
             
@@ -432,14 +445,14 @@
                                         <span class="modifier-icon method fa fa-play circle">
                                             <span class="fa fa-circle"></span>
                                         </span>
-                                    <code>canSpeakRequest(input: HandlerInput)</code>
+                                    <code>loadConfig()</code>
                                 </td>
                             </tr>
             
                             <tr>
                                 <td class="col-md-4">
                                         <div class="io-description">
-                                            <b>Returns: </b>    <code>boolean</code>
+                                            <b>Returns: </b>    <code>void</code>
             
                                         </div>
                                 </td>
@@ -450,7 +463,7 @@
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
-                                    <b><span class="modifier">Public</span> getResponse</b>
+                                    <b><span class="modifier">Public</span> getInstance</b>
                                 </td>
                             </tr>
             
@@ -459,14 +472,41 @@
                                         <span class="modifier-icon method fa fa-play circle">
                                             <span class="fa fa-circle"></span>
                                         </span>
-                                    <code>getResponse(input: HandlerInput)</code>
+                                    <code>getInstance(config: <a href="../classes/SkillConfig.html" >TalkyJSSkillConfig</a>)</code>
                                 </td>
                             </tr>
             
                             <tr>
                                 <td class="col-md-4">
                                         <div class="io-description">
-                                            <b>Returns: </b>    <code>ErrorResponse</code>
+                                            <b>Returns: </b>    <code><a href="../classes/SkillConfig.html" target="_self" >SkillConfig</a></code>
+            
+                                        </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b><span class="modifier">Public</span> getDBType</b>
+                                </td>
+                            </tr>
+            
+                            <tr>
+                                <td class="col-md-4">
+                                        <span class="modifier-icon method fa fa-play circle">
+                                            <span class="fa fa-circle"></span>
+                                        </span>
+                                    <code>getDBType()</code>
+                                </td>
+                            </tr>
+            
+                            <tr>
+                                <td class="col-md-4">
+                                        <div class="io-description">
+                                            <b>Returns: </b>    <code>void</code>
             
                                         </div>
                                 </td>
@@ -482,12 +522,27 @@
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
-                                    <b><span class="modifier">Public</span> errorResponses</b>
+                                    <b><span class="modifier">Private</span> _config</b>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <span class="modifier-icon fa fa-circle"></span><code>errorResponses:     <code>{ [locale: string]: ErrorResponse; }</code>
+                                    <span class="modifier-icon fa fa-lock"></span><code>_config:     <code><a href="../classes/SkillConfig.html" target="_self" >TalkyJSSkillConfig &amp; { stage: TalkyJSSkillStage; logLevel: &quot;silly&quot; | &quot;trace&quot; | &quot;debug&quot; | &quot;info&quot; |...</a></code>
+            </bcode>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b><span class="modifier">Private</span> _instance</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <span class="modifier-icon fa fa-lock"></span><code>_instance:     <code><a href="../classes/SkillConfig.html" target="_self" >SkillConfig</a></code>
             </bcode>
                                 </td>
                             </tr>
@@ -496,51 +551,59 @@
             </section>
     </div>
     <div class="tab-pane fade tab-source-code" id="source">
-        <pre><code class="hljs javascript">import { HandlerInput, getLocale } from &#x27;ask-sdk-core&#x27;;
+        <pre><code class="hljs javascript">import {
+  TalkyJSSkillConfig,
+  TalkyJSSkillStage,
+  TalkyJSErrorHandlerConfig,
+} from &#x27;../framework/skillFactory.interface&#x27;;
+import { TLogLevelName } from &#x27;tslog&#x27;;
 
-export type ErrorResponse &#x3D; {
-  speak: string;
-  reprompt: string;
-};
-export class ErrorHandlerService {
-  public static readonly errorResponses: {
-    [locale: string]: ErrorResponse;
-  } &#x3D; {
-    &#x27;ja-JP&#x27;: {
-      speak: &#x27;すみません。うまく聞き取れませんでした。もう一度お願いします。&#x27;,
-      reprompt: &#x27;もう一度、お願いできますか？&#x27;,
-    },
-    en: {
-      speak: &#x27;Sorry I could not understand the meaning. Please tell me again&#x27;,
-      reprompt: &#x27;Could you tell me onece more?&#x27;,
-    },
+export class SkillConfig {
+  private static _instance: SkillConfig;
+  private _config: TalkyJSSkillConfig &amp; {
+    stage: TalkyJSSkillStage;
+    logLevel: TLogLevelName;
+    errorHandler: TalkyJSErrorHandlerConfig;
   };
-
-  public static getSupportedLang() {
-    return Object.keys(this.errorResponses);
+  private constructor(config?: TalkyJSSkillConfig) {
+    this._config &#x3D; this.fillDefaultConfigProps(config);
   }
-
-  public static findSpeakableLang(locale: string): string | undefined {
-    const errorHandlerSupportedLang &#x3D; this.getSupportedLang();
-    const matched &#x3D; errorHandlerSupportedLang.find(target &#x3D;&gt; {
-      if (target &#x3D;&#x3D;&#x3D; locale) return true;
-      const reg &#x3D; new RegExp(target);
-      return reg.test(locale);
-    });
-    return matched;
+  private fillDefaultConfigProps(config?: TalkyJSSkillConfig) {
+    const stage &#x3D; config &amp;&amp; config.stage ? config.stage : &#x27;development&#x27;;
+    const logLevel &#x3D; config &amp;&amp; config.logLevel ? config.logLevel : &#x27;info&#x27;;
+    const skillId &#x3D; config &amp;&amp; config.skillId ? config.skillId : undefined;
+    const errorHandler &#x3D;
+      config &amp;&amp; config.errorHandler
+        ? config.errorHandler
+        : {
+            usePreset: true,
+          };
+    return {
+      ...config,
+      stage,
+      logLevel,
+      skillId,
+      errorHandler,
+    };
   }
-
-  public static canSpeakRequest(input: HandlerInput): boolean {
-    const locale &#x3D; getLocale(input.requestEnvelope);
-    const lang &#x3D; this.findSpeakableLang(locale);
-    return !!lang;
+  private updateConfig(config?: TalkyJSSkillConfig) {
+    this._config &#x3D; this.fillDefaultConfigProps(config);
+    return this;
   }
-
-  public static getResponse(input: HandlerInput): ErrorResponse {
-    const locale &#x3D; getLocale(input.requestEnvelope);
-    const lang &#x3D; this.findSpeakableLang(locale);
-    if (!lang) return this.errorResponses[&#x27;en&#x27;];
-    return this.errorResponses[lang] || this.errorResponses[&#x27;en&#x27;];
+  public loadConfig() {
+    return this._config;
+  }
+  public static getInstance(config?: TalkyJSSkillConfig): SkillConfig {
+    if (!this._instance) {
+      this._instance &#x3D; new SkillConfig(config);
+    }
+    if (config) this._instance.updateConfig(config);
+    return this._instance;
+  }
+  public getDBType() {
+    const type &#x3D; this._config.database?.type;
+    if (type &#x3D;&#x3D;&#x3D; undefined) return &#x27;none&#x27;;
+    return type;
   }
 }
 </code></pre>

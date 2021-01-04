@@ -80,7 +80,22 @@
                                     <a href="classes/RepeatIntentService.html" >RepeatIntentService</a>
                                 </li>
                                 <li class="link">
+                                    <a href="classes/RequestHandlerFactory.html" >RequestHandlerFactory</a>
+                                </li>
+                                <li class="link">
+                                    <a href="classes/RouteMatcher.html" >RouteMatcher</a>
+                                </li>
+                                <li class="link">
                                     <a href="classes/SessionAttributesManager.html" >SessionAttributesManager</a>
+                                </li>
+                                <li class="link">
+                                    <a href="classes/SessionSituationService.html" >SessionSituationService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="classes/SituationService.html" >SituationService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="classes/SkillConfig.html" >SkillConfig</a>
                                 </li>
                                 <li class="link">
                                     <a href="classes/SkillFactory.html" >SkillFactory</a>
@@ -109,6 +124,12 @@
                                 </li>
                                 <li class="link">
                                     <a href="interfaces/PersistentAttributes.html" >PersistentAttributes</a>
+                                </li>
+                                <li class="link">
+                                    <a href="interfaces/RouteSituation.html" >RouteSituation</a>
+                                </li>
+                                <li class="link">
+                                    <a href="interfaces/Router.html" >Router</a>
                                 </li>
                                 <li class="link">
                                     <a href="interfaces/TalkyJSAPIClientConfig.html" >TalkyJSAPIClientConfig</a>
@@ -217,7 +238,22 @@
                                            <a href="classes/RepeatIntentService.html" >RepeatIntentService</a>
                                        </li>
                                        <li class="link">
+                                           <a href="classes/RequestHandlerFactory.html" >RequestHandlerFactory</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="classes/RouteMatcher.html" >RouteMatcher</a>
+                                       </li>
+                                       <li class="link">
                                            <a href="classes/SessionAttributesManager.html" >SessionAttributesManager</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="classes/SessionSituationService.html" >SessionSituationService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="classes/SituationService.html" >SituationService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="classes/SkillConfig.html" >SkillConfig</a>
                                        </li>
                                        <li class="link">
                                            <a href="classes/SkillFactory.html" >SkillFactory</a>
@@ -246,6 +282,12 @@
                                        </li>
                                        <li class="link">
                                            <a href="interfaces/PersistentAttributes.html" >PersistentAttributes</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="interfaces/RouteSituation.html" >RouteSituation</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="interfaces/Router.html" >Router</a>
                                        </li>
                                        <li class="link">
                                            <a href="interfaces/TalkyJSAPIClientConfig.html" >TalkyJSAPIClientConfig</a>
@@ -296,7 +338,7 @@
 <pre><code class="hljs undefined">$ npm i -S @talkyjs/core</code></pre><h3 id="create-lambda-handler">Create lambda handler</h3>
 <pre><code class="hljs typescript"><span class="hljs-keyword">import</span> { SkillFactory } <span class="hljs-keyword">from</span> <span class="hljs-string">'@talkyjs/core'</span><br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> handler = SkillFactory.launch()<br>.addRequestHandlers({<br>    canHandle(input) {<br>        <span class="hljs-keyword">return</span> input.requestEnvelope.request.type === <span class="hljs-string">'LaunchRequest'</span><br>    },<br>    handle(input) {<br>        <span class="hljs-keyword">return</span> input.responseBuilder.speak(<span class="hljs-string">'Hello'</span>).getResponse()<br>    }<br>})<br>.createLambdaHandler()</code></pre><h3 id="skill-configuration">Skill Configuration</h3>
 <p>We can easy to set up a several skill configuration.</p>
-<pre><code class="hljs typescript"><span class="hljs-keyword">import</span> { SkillFactory, TalkyJSSkillConfig } <span class="hljs-keyword">from</span> <span class="hljs-string">'@talkyjs/core'</span><br><br><span class="hljs-keyword">const</span> config: TalkyJSSkillConfig = {<br>    stage: <span class="hljs-string">'production'</span>,                  <span class="hljs-comment">// [Optional] Skill Stage</span><br>    logLevel: <span class="hljs-string">'error'</span>,                    <span class="hljs-comment">// [Optional] Log level</span><br>    database: {                           <span class="hljs-comment">// [Optional] Database configuration</span><br>        <span class="hljs-keyword">type</span>: <span class="hljs-string">'s3'</span>,                       <span class="hljs-comment">// [Optional] Database type (none / s3 / dynamodb)</span><br>        tableName: <span class="hljs-string">'example-bucket-name'</span>, <span class="hljs-comment">// [Optional] Database table name</span><br>        s3PathPrefix: <span class="hljs-string">'path-prefix'</span>       <span class="hljs-comment">// [Optional] [Only S3] S3 path prefix</span><br>    },<br>    skillId: <span class="hljs-string">'ask.your.skill.id'</span>,         <span class="hljs-comment">// [Optional] Skill ID</span><br>    errorHandler: {                       <span class="hljs-comment">// [Optional] error handler configurations</span><br>        usePreset: <span class="hljs-literal">true</span>,                  <span class="hljs-comment">// [Optional] Use preset error handler</span><br>        sentry: {                         <span class="hljs-comment">// [Optional] Error tracker configuration (sentry)</span><br>            dsn: process.env.SENTRY.DSN   <span class="hljs-comment">// [Optional] Sentry dsn</span><br>        }<br>    }<br>}<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> handler = SkillFactory.launch(config)<br>.addRequestHandlers({<br>    canHandle(input) {<br>        <span class="hljs-keyword">return</span> input.requestEnvelope.request.type === <span class="hljs-string">'LaunchRequest'</span><br>    },<br>    handle(input) {<br>        <span class="hljs-keyword">return</span> input.responseBuilder.speak(<span class="hljs-string">'Hello'</span>).getResponse()<br>    }<br>})<br>.createLambdaHandler()<br></code></pre><h2 id="feature">Feature</h2>
+<pre><code class="hljs typescript"><span class="hljs-keyword">import</span> { SkillFactory, TalkyJSSkillConfig } <span class="hljs-keyword">from</span> <span class="hljs-string">'@talkyjs/core'</span><br><br><span class="hljs-keyword">const</span> config: TalkyJSSkillConfig = {<br>    stage: <span class="hljs-string">'production'</span>,                  <span class="hljs-comment">// [Optional] Skill Stage</span><br>    logLevel: <span class="hljs-string">'error'</span>,                    <span class="hljs-comment">// [Optional] Log level</span><br>    database: {                           <span class="hljs-comment">// [Optional] Database configuration</span><br>        <span class="hljs-keyword">type</span>: <span class="hljs-string">'s3'</span>,                       <span class="hljs-comment">// [Optional] Database type (none / s3 / dynamodb)</span><br>        tableName: <span class="hljs-string">'example-bucket-name'</span>, <span class="hljs-comment">// [Optional] Database table name</span><br>        s3PathPrefix: <span class="hljs-string">'path-prefix'</span>       <span class="hljs-comment">// [Optional] [Only S3] S3 path prefix</span><br>    },<br>    apiClient: {                            <span class="hljs-comment">// SMAPI and Alexa API Client configuration</span><br>        useDefault: <span class="hljs-literal">true</span>,                   <span class="hljs-comment">// Use DefaultApiClient</span><br>        <span class="hljs-comment">// client: new DefaultApiClient()   // If you have own ApiClient, put here</span><br>    },<br>    skillId: <span class="hljs-string">'ask.your.skill.id'</span>,         <span class="hljs-comment">// [Optional] Skill ID</span><br>    errorHandler: {                       <span class="hljs-comment">// [Optional] error handler configurations</span><br>        usePreset: <span class="hljs-literal">true</span>,                  <span class="hljs-comment">// [Optional] Use preset error handler</span><br>        sentry: {                         <span class="hljs-comment">// [Optional] Error tracker configuration (sentry)</span><br>            dsn: process.env.SENTRY.DSN   <span class="hljs-comment">// [Optional] Sentry dsn</span><br>        }<br>    }<br>}<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> handler = SkillFactory.launch(config)<br>.addRequestHandlers({<br>    canHandle(input) {<br>        <span class="hljs-keyword">return</span> input.requestEnvelope.request.type === <span class="hljs-string">'LaunchRequest'</span><br>    },<br>    handle(input) {<br>        <span class="hljs-keyword">return</span> input.responseBuilder.speak(<span class="hljs-string">'Hello'</span>).getResponse()<br>    }<br>})<br>.createLambdaHandler()<br></code></pre><h2 id="feature">Feature</h2>
 <h3 id="fully-compatible-to-ask-sdk">Fully Compatible to ask-sdk</h3>
 <p>@talkyjs has a various utility classes and function.<br>But almost feature has a compatibility to ask-sdk.</p>
 <p>Easy to setup, easty to customize.</p>
@@ -352,14 +394,21 @@
 </tr>
 </tbody>
 </table>
-<h2 id="logging">Logging</h2>
+<h3 id="logging">Logging</h3>
 <p>Automatically log these props.</p>
 <ul>
 <li>Request</li>
 <li>Response</li>
 </ul>
-<p>WIP</p>
-
+<h3 id="optimizing-the-database-request">Optimizing the Database request</h3>
+<p>TalkyJS has a extended persistentAttributesManager.</p>
+<pre><code class="hljs typescript"><span class="hljs-keyword">import</span> { PersistentAttributesManager, SkillFactory } <span class="hljs-keyword">from</span> <span class="hljs-string">'@talkyjs/core'</span>;<br>SkillFactory.launch({<br>  database: {<br>    <span class="hljs-keyword">type</span>: <span class="hljs-string">'s3'</span>, <span class="hljs-comment">// or 'dynamodb'. When select 'none', it does not work!</span><br>    tableName: <span class="hljs-string">'example-bucket'</span><br>  }<br>}).addRequestHandlers({<br>  canHandle(input) {<br>    <span class="hljs-keyword">return</span> input.requestEnvelope.request.type === <span class="hljs-string">'LaunchRequest'</span><br>  },<br>  <span class="hljs-keyword">async</span> handle(input) {<br>    <span class="hljs-comment">// Create manager</span><br>    <span class="hljs-keyword">const</span> persistenceManager = <span class="hljs-keyword">new</span> PersistentAttributesManager(input.attributesManager)<br><br>    <span class="hljs-comment">// Get saved data with default value</span><br>    <span class="hljs-keyword">const</span> { name } = <span class="hljs-keyword">await</span> persistenceManager.getPersistentAttributes({<br>      name: <span class="hljs-string">'sir'</span><br>    })<br><br>    <span class="hljs-comment">// Update parameter with merging exists attributes</span><br>    <span class="hljs-keyword">await</span> persistenceManager.updatePersistentAttributes({<br>      now: <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>().toISOString()<br>    })<br>    <span class="hljs-keyword">return</span> input.responseBuilder.speak(<span class="hljs-string">`Hello <span class="hljs-subst">${name}</span>`</span>).getResponse()<br>  }<br>})</code></pre><p>And all persistent attributes using the manager will saved at the ResponseInterceptor automatically.<br>So, the database connection has been optimized.</p>
+<h4 id="own-attributes-management">Own attributes management</h4>
+<p>We can define attributes for your own Skill</p>
+<pre><code class="hljs typescript"><span class="hljs-keyword">type</span> MySkillData = {<br>  name: <span class="hljs-built_in">string</span>;<br>  favoritesCities: <span class="hljs-built_in">string</span>[];<br>  preferedLevel: <span class="hljs-string">'easy'</span> | <span class="hljs-string">'normal'</span> | <span class="hljs-string">'hard'</span><br>}<br><span class="hljs-keyword">class</span> MySkillPersistentAttributesManager <span class="hljs-keyword">extends</span> PersistentAttributesManager&lt;MySkillData&gt; {<br>  <span class="hljs-keyword">protected</span> readonly defaultAttributes = {<br>    name: <span class="hljs-string">''</span>,<br>    favoritesCities: [],<br>    preferedLevel: <span class="hljs-string">'normal'</span> <span class="hljs-keyword">as</span> <span class="hljs-keyword">const</span><br>  }<br>}</code></pre><p>And use own class intead of default  class.</p>
+<pre><code class="hljs typescript">SkillFactory.launch({<br>  database: {<br>    <span class="hljs-keyword">type</span>: <span class="hljs-string">'s3'</span>,<br>    tableName: <span class="hljs-string">'example-bucket'</span><br>  }<br>}).addRequestHandlers({<br>  canHandle(input) {<br>    <span class="hljs-keyword">return</span> input.requestEnvelope.request.type === <span class="hljs-string">'LaunchRequest'</span><br>  },<br>  <span class="hljs-keyword">async</span> handle(input) {<br>    <span class="hljs-keyword">const</span> persistenceAdapter = <span class="hljs-keyword">new</span> MySkillPersistentAttributesManager(input.attributesManager)<br>    <span class="hljs-keyword">const</span> { name } = <span class="hljs-keyword">await</span> persistenceAdapter.getPersistentAttributes()<br>    <span class="hljs-keyword">await</span> persistenceAdapter.updatePersistentAttributes({<br>      preferedLevel: <span class="hljs-string">'hard'</span><br>    })<br>    <span class="hljs-keyword">await</span> persistenceAdapter.save()<br>    <span class="hljs-keyword">return</span> input.responseBuilder.speak(<span class="hljs-string">`Hello <span class="hljs-subst">${name}</span>`</span>).getResponse()<br>  }<br>})</code></pre><h4 id="save-immediately">Save immediately</h4>
+<p>We can save it to execute <code>await persistenceAdapter.save()</code> method.<br>And the method is checking is the attributes updated.</p>
+<pre><code class="hljs typescript"><span class="hljs-comment">// Update attributes</span><br><span class="hljs-keyword">await</span> persistenceManager.updatePersistentAttributes({<br>  now: <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>().toISOString()<br>})<br><br><span class="hljs-comment">// Save now!</span><br><span class="hljs-keyword">await</span> persistenceAdapter.save()<br><br><span class="hljs-comment">// Nothing to do (Because no attributes has been updated)</span><br><span class="hljs-keyword">await</span> persistenceAdapter.save()<br><br><span class="hljs-comment">// Update attributes second time</span><br><span class="hljs-keyword">await</span> persistenceManager.updatePersistentAttributes({<br>  now: <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>().toISOString()<br>})<br><br><span class="hljs-comment">// Save!</span><br><span class="hljs-keyword">await</span> persistenceAdapter.save()</code></pre>
 
 
 

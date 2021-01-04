@@ -80,7 +80,22 @@
                                     <a href="../classes/RepeatIntentService.html" >RepeatIntentService</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../classes/RequestHandlerFactory.html" >RequestHandlerFactory</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../classes/RouteMatcher.html" >RouteMatcher</a>
+                                </li>
+                                <li class="link">
                                     <a href="../classes/SessionAttributesManager.html" >SessionAttributesManager</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../classes/SessionSituationService.html" >SessionSituationService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../classes/SituationService.html" >SituationService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../classes/SkillConfig.html" >SkillConfig</a>
                                 </li>
                                 <li class="link">
                                     <a href="../classes/SkillFactory.html" >SkillFactory</a>
@@ -109,6 +124,12 @@
                                 </li>
                                 <li class="link">
                                     <a href="../interfaces/PersistentAttributes.html" >PersistentAttributes</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../interfaces/RouteSituation.html" >RouteSituation</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../interfaces/Router.html" >Router</a>
                                 </li>
                                 <li class="link">
                                     <a href="../interfaces/TalkyJSAPIClientConfig.html" >TalkyJSAPIClientConfig</a>
@@ -217,7 +238,22 @@
                                            <a href="../classes/RepeatIntentService.html" >RepeatIntentService</a>
                                        </li>
                                        <li class="link">
+                                           <a href="../classes/RequestHandlerFactory.html" >RequestHandlerFactory</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/RouteMatcher.html" >RouteMatcher</a>
+                                       </li>
+                                       <li class="link">
                                            <a href="../classes/SessionAttributesManager.html" >SessionAttributesManager</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/SessionSituationService.html" >SessionSituationService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/SituationService.html" >SituationService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/SkillConfig.html" >SkillConfig</a>
                                        </li>
                                        <li class="link">
                                            <a href="../classes/SkillFactory.html" >SkillFactory</a>
@@ -246,6 +282,12 @@
                                        </li>
                                        <li class="link">
                                            <a href="../interfaces/PersistentAttributes.html" >PersistentAttributes</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../interfaces/RouteSituation.html" >RouteSituation</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../interfaces/Router.html" >Router</a>
                                        </li>
                                        <li class="link">
                                            <a href="../interfaces/TalkyJSAPIClientConfig.html" >TalkyJSAPIClientConfig</a>
@@ -436,6 +478,7 @@ class DefaultLogger implements Logger {
 }
 /* eslint-enable @typescript-eslint/no-explicit-any */
 
+let hasUpdated &#x3D; false;
 /**
  * Simply wrapper of ask-sdk persistentAttributesManager
  */
@@ -444,7 +487,7 @@ export class PersistentAttributesManager&lt;
 &gt; {
   private static instance: PersistentAttributesManager;
   private readonly logger: Logger &#x3D; new DefaultLogger();
-  private hasUpdated: boolean &#x3D; false;
+  protected defaultAttributes?: T &#x3D; undefined;
 
   public static getInstance&lt;
     T extends PersistentAttributes &#x3D; PersistentAttributes
@@ -460,21 +503,30 @@ export class PersistentAttributesManager&lt;
     this.attributeManager &#x3D; attributesManager;
   }
 
-  public async getPersistentAttributes(defaultAttributes: T): Promise&lt;T&gt; {
+  public async getPersistentAttributes(
+    defaultAttributes?: Partial&lt;T&gt;
+  ): Promise&lt;T&gt; {
     try {
       const data &#x3D; await this.attributeManager.getPersistentAttributes();
       if (data) {
-        return {
+        const item &#x3D; {
+          ...this.defaultAttributes,
           ...defaultAttributes,
           ...data,
-        };
+        } as T;
+        this.attributeManager.setPersistentAttributes(item);
+        return item;
       }
     } catch (e) {
       this.logger.debug(e.name);
       this.logger.error(e);
     }
-    this.attributeManager.setPersistentAttributes(defaultAttributes);
-    return defaultAttributes;
+    const defaultAtts &#x3D; {
+      ...this.defaultAttributes,
+      ...defaultAttributes,
+    } as T;
+    this.attributeManager.setPersistentAttributes(defaultAtts);
+    return defaultAtts;
   }
 
   /**
@@ -490,7 +542,9 @@ export class PersistentAttributesManager&lt;
    *  await persistentAttributesManager.save()
    *  &#x60;&#x60;&#x60;
    */
-  public async updatePersistentAttributes(attributes: T): Promise&lt;void&gt; {
+  public async updatePersistentAttributes(
+    attributes: Partial&lt;T&gt;
+  ): Promise&lt;void&gt; {
     try {
       const data &#x3D; await this.attributeManager.getPersistentAttributes();
       this.attributeManager.setPersistentAttributes(
@@ -499,16 +553,16 @@ export class PersistentAttributesManager&lt;
     } catch (e) {
       this.attributeManager.setPersistentAttributes(attributes);
     }
-    this.hasUpdated &#x3D; true;
+    hasUpdated &#x3D; true;
   }
 
   /**
    * Update attributes if the prop has been updated
    */
   public async save(): Promise&lt;void&gt; {
-    if (!this.hasUpdated) return;
+    if (!hasUpdated) return;
     await this.attributeManager.savePersistentAttributes();
-    this.hasUpdated &#x3D; false;
+    hasUpdated &#x3D; false;
   }
 }
 </code></pre>

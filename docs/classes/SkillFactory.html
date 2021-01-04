@@ -80,7 +80,22 @@
                                     <a href="../classes/RepeatIntentService.html" >RepeatIntentService</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../classes/RequestHandlerFactory.html" >RequestHandlerFactory</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../classes/RouteMatcher.html" >RouteMatcher</a>
+                                </li>
+                                <li class="link">
                                     <a href="../classes/SessionAttributesManager.html" >SessionAttributesManager</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../classes/SessionSituationService.html" >SessionSituationService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../classes/SituationService.html" >SituationService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../classes/SkillConfig.html" >SkillConfig</a>
                                 </li>
                                 <li class="link">
                                     <a href="../classes/SkillFactory.html"  class="active" >SkillFactory</a>
@@ -109,6 +124,12 @@
                                 </li>
                                 <li class="link">
                                     <a href="../interfaces/PersistentAttributes.html" >PersistentAttributes</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../interfaces/RouteSituation.html" >RouteSituation</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../interfaces/Router.html" >Router</a>
                                 </li>
                                 <li class="link">
                                     <a href="../interfaces/TalkyJSAPIClientConfig.html" >TalkyJSAPIClientConfig</a>
@@ -217,7 +238,22 @@
                                            <a href="../classes/RepeatIntentService.html" >RepeatIntentService</a>
                                        </li>
                                        <li class="link">
+                                           <a href="../classes/RequestHandlerFactory.html" >RequestHandlerFactory</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/RouteMatcher.html" >RouteMatcher</a>
+                                       </li>
+                                       <li class="link">
                                            <a href="../classes/SessionAttributesManager.html" >SessionAttributesManager</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/SessionSituationService.html" >SessionSituationService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/SituationService.html" >SituationService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/SkillConfig.html" >SkillConfig</a>
                                        </li>
                                        <li class="link">
                                            <a href="../classes/SkillFactory.html"  class="active" >SkillFactory</a>
@@ -246,6 +282,12 @@
                                        </li>
                                        <li class="link">
                                            <a href="../interfaces/PersistentAttributes.html" >PersistentAttributes</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../interfaces/RouteSituation.html" >RouteSituation</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../interfaces/Router.html" >Router</a>
                                        </li>
                                        <li class="link">
                                            <a href="../interfaces/TalkyJSAPIClientConfig.html" >TalkyJSAPIClientConfig</a>
@@ -326,7 +368,7 @@
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
-                                    <code>constructor(config: TalkyJSSkillConfig)</code>
+                                    <code>constructor(config: <a href="../classes/SkillConfig.html" >TalkyJSSkillConfig</a>)</code>
                                 </td>
                             </tr>
             
@@ -349,7 +391,7 @@
                                         <span class="modifier-icon method fa fa-play circle">
                                             <span class="fa fa-circle"></span>
                                         </span>
-                                    <code>launch(config: TalkyJSSkillConfig)</code>
+                                    <code>launch(config: <a href="../classes/SkillConfig.html" >TalkyJSSkillConfig</a>)</code>
                                 </td>
                             </tr>
             
@@ -414,6 +456,35 @@
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
+                                    <b><span class="modifier">Private</span> _addUsingDBHelpers</b>
+                                </td>
+                            </tr>
+            
+                            <tr>
+                                <td class="col-md-4">
+                                        <span class="modifier-icon method fa fa-play lock">
+                                            <span class="fa fa-lock"></span>
+                                        </span>
+                                    <code>_addUsingDBHelpers()</code>
+                                </td>
+                            </tr>
+            
+                            <tr>
+                                <td class="col-md-4">
+                                        <div class="io-description"><p>Add helpers using persistenceAttributesManager</p>
+            </div>
+                                        <div class="io-description">
+                                            <b>Returns: </b>    <code>this</code>
+            
+                                        </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
                                     <b><span class="modifier">Private</span> _addDevelopmentHelpers</b>
                                 </td>
                             </tr>
@@ -452,7 +523,7 @@
                                         <span class="modifier-icon method fa fa-play lock">
                                             <span class="fa fa-lock"></span>
                                         </span>
-                                    <code>_configureAPIClients(config: TalkyJSSkillConfig)</code>
+                                    <code>_configureAPIClients(config: <a href="../classes/SkillConfig.html" >TalkyJSSkillConfig</a>)</code>
                                 </td>
                             </tr>
             
@@ -497,7 +568,7 @@
                                         <span class="modifier-icon method fa fa-play lock">
                                             <span class="fa fa-lock"></span>
                                         </span>
-                                    <code>_configureDBClients(config: TalkyJSSkillConfig)</code>
+                                    <code>_configureDBClients(config: <a href="../classes/SkillConfig.html" >TalkyJSSkillConfig</a>)</code>
                                 </td>
                             </tr>
             
@@ -684,6 +755,51 @@
                             <tr>
                                 <td class="col-md-4">
                                         <div class="io-description"><p>[Proxy] add requestInterceptors</p>
+            </div>
+                                        <div class="io-description">
+                                                <b>Parameters :</b>
+                                                <ul class="jsdoc-params">
+                                                        <li>
+                                                            <div>
+                                                                <b>interceptors</b>
+                                                            </div>
+                                                            <div>
+                                                                
+                                                            </div>
+                                                        </li>
+                                                </ul>
+                                        </div>
+                                        <div class="io-description">
+                                            <b>Returns: </b>    <code>this</code>
+            
+                                        </div>
+                                            <div class="io-description">
+                                                
+                                            </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b><span class="modifier">Public</span> addResponseInterceptors</b>
+                                </td>
+                            </tr>
+            
+                            <tr>
+                                <td class="col-md-4">
+                                        <span class="modifier-icon method fa fa-play circle">
+                                            <span class="fa fa-circle"></span>
+                                        </span>
+                                    <code>addResponseInterceptors(interceptors: CustomSkillResponseInterceptor[])</code>
+                                </td>
+                            </tr>
+            
+                            <tr>
+                                <td class="col-md-4">
+                                        <div class="io-description"><p>[Proxy] add ResponseInterceptors</p>
             </div>
                                         <div class="io-description">
                                                 <b>Parameters :</b>
@@ -903,6 +1019,32 @@
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
+                                    <b><span class="modifier">Private</span> dbType</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <span class="modifier-icon fa fa-lock"></span><code>dbType:     <code>TalkyJSDBType</code>
+            </bcode>
+                                </td>
+                            </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <i>Default value: </i><code>none</code>
+                                    </td>
+                                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Skill PersistenceAttributesManager Type</p>
+            </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
                                     <b><span class="modifier">Public</span> logLevel</b>
                                 </td>
                             </tr>
@@ -929,7 +1071,7 @@
                             </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <span class="modifier-icon fa fa-lock"></span><code>router:     <code>RequestHandlerFactory&lt;{}, {}&gt;</code>
+                                    <span class="modifier-icon fa fa-lock"></span><code>router:     <code><a href="../classes/RequestHandlerFactory.html" target="_self" >RequestHandlerFactory&lt;{}, {}&gt;</a></code>
             </bcode>
                                 </td>
                             </tr>
@@ -993,17 +1135,19 @@
   RequestHandler,
   RequestInterceptor,
   ErrorHandler,
+  ResponseInterceptor,
 } from &#x27;ask-sdk-core&#x27;;
 import { DynamoDbPersistenceAdapter } from &#x27;ask-sdk-dynamodb-persistence-adapter&#x27;;
 import { S3PersistenceAdapter } from &#x27;ask-sdk-s3-persistence-adapter&#x27;;
 import { TLogLevelName } from &#x27;tslog&#x27;;
-import { Router, RequestHandlerFactory } from &#x27;@ask-utils/router&#x27;;
+import { Router, RequestHandlerFactory } from &#x27;../router&#x27;;
 import { LoggerService } from &#x27;../Logger&#x27;;
 import {
   TalkyJSSkillConfig,
   SkillHandler,
   TalkyJSSkillStage,
   TalkyJSErrorHandlerConfig,
+  TalkyJSDBType,
 } from &#x27;./skillFactory.interface&#x27;;
 import {
   IntentRelectorHandler,
@@ -1012,6 +1156,10 @@ import {
   SkillDisabledEventHandler,
   withErrorHandler,
 } from &#x27;../handlers/index&#x27;;
+import { SavePersistentAttributesInterceptor } from &#x27;../PersistentAttributesManager&#x27;;
+import { SkillInvocationRecorder } from &#x27;../CRM&#x27;;
+import { SkillConfig } from &#x27;../Config/Config&#x27;;
+import { RequestSituationInterceptor } from &#x27;../Situation/Situation.interceptor&#x27;;
 
 // let cachedSkill: CustomSkillBuilder
 
@@ -1035,6 +1183,11 @@ export class SkillFactory {
   private _hasGeneralHandlerAdded: boolean &#x3D; false;
 
   /**
+   * Skill PersistenceAttributesManager Type
+   */
+  private dbType: TalkyJSDBType &#x3D; &#x27;none&#x27;;
+
+  /**
    * Log level
    */
   public logLevel: TLogLevelName;
@@ -1050,18 +1203,19 @@ export class SkillFactory {
   protected readonly stage: TalkyJSSkillStage;
 
   public constructor(config?: TalkyJSSkillConfig) {
-    this.stage &#x3D; config &amp;&amp; config.stage ? config.stage : &#x27;development&#x27;;
-    this.logLevel &#x3D; config &amp;&amp; config.logLevel ? config.logLevel : &#x27;info&#x27;;
-    const skillId &#x3D; config &amp;&amp; config.skillId ? config.skillId : null;
+    const configManager &#x3D; SkillConfig.getInstance(config);
+    const {
+      stage,
+      logLevel,
+      skillId,
+      errorHandler,
+    } &#x3D; configManager.loadConfig();
+    this.stage &#x3D; stage;
+    this.logLevel &#x3D; logLevel;
     if (skillId) this.skillBuilders.withSkillId(skillId);
     this._configureAPIClients(config);
     this._configureDBClients(config);
-    this._errorHandler &#x3D;
-      config &amp;&amp; config.errorHandler
-        ? config.errorHandler
-        : {
-            usePreset: true,
-          };
+    this._errorHandler &#x3D; errorHandler;
   }
 
   /**
@@ -1080,12 +1234,24 @@ export class SkillFactory {
   private _addGeneralHelpers(): this {
     if (this._hasGeneralHandlerAdded) return this;
     this._hasGeneralHandlerAdded &#x3D; true;
-    withRepeatIntentHandler(this.skillBuilders);
-    this.skillBuilders.addRequestHandlers(
+    this.addRequestHandlers(
       SessionEndedRequestHandler,
       SkillDisabledEventHandler
-    );
+    ).addRequestInterceptors(RequestSituationInterceptor);
+    withRepeatIntentHandler(this.skillBuilders);
     withErrorHandler(this.skillBuilders, this._errorHandler);
+    this._addUsingDBHelpers();
+    return this;
+  }
+
+  /**
+   * Add helpers using persistenceAttributesManager
+   */
+  private _addUsingDBHelpers(): this {
+    if (this.dbType &#x3D;&#x3D;&#x3D; &#x27;none&#x27;) return this;
+    this.addResponseInterceptors(
+      SavePersistentAttributesInterceptor
+    ).addRequestInterceptors(SkillInvocationRecorder);
     return this;
   }
 
@@ -1123,7 +1289,9 @@ export class SkillFactory {
   private _configureDBClients(config?: TalkyJSSkillConfig): this {
     if (!config) return this;
     const { database } &#x3D; config;
+    // ここでDBタイプをRequestAttributesに保存しておく
     if (!database || database.type &#x3D;&#x3D;&#x3D; &#x27;none&#x27;) return this;
+    this.dbType &#x3D; database.type;
     if (database.type &#x3D;&#x3D;&#x3D; &#x27;dynamodb&#x27;) {
       this.skillBuilders.withPersistenceAdapter(
         new DynamoDbPersistenceAdapter({
@@ -1176,6 +1344,15 @@ export class SkillFactory {
    */
   public addRequestInterceptors(...interceptors: RequestInterceptor[]): this {
     this.skillBuilders.addRequestInterceptors(...interceptors);
+    return this;
+  }
+
+  /**
+   * [Proxy] add ResponseInterceptors
+   * @param interceptors
+   */
+  public addResponseInterceptors(...interceptors: ResponseInterceptor[]): this {
+    this.skillBuilders.addResponseInterceptors(...interceptors);
     return this;
   }
 
