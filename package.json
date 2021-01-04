@@ -57,11 +57,11 @@
     "@ask-utils/test": "3.11.0",
     "@commitlint/cli": "11.0.0",
     "@commitlint/config-conventional": "11.0.0",
-    "husky": "4.3.0",
-    "lint-staged": "10.5.1",
+    "husky": "4.3.6",
+    "lint-staged": "10.5.3",
     "tsdx": "0.14.1",
     "tslib": "2.0.3",
-    "typescript": "4.0.5"
+    "typescript": "4.1.3"
   },
   "dependencies": {
     "@ask-utils/core": "^3.9.0",
