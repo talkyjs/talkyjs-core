@@ -30,6 +30,7 @@ import { SavePersistentAttributesInterceptor } from '../PersistentAttributesMana
 import { SkillInvocationRecorder } from '../CRM';
 import { SkillConfig } from '../Config/Config';
 import { RequestSituationInterceptor } from '../Situation/Situation.interceptor';
+import { createOpningTalkInterceptor } from '../handlers/OpeningInterceptor/Opening.interceptor';
 
 // let cachedSkill: CustomSkillBuilder
 
@@ -85,7 +86,15 @@ export class SkillFactory {
     if (skillId) this.skillBuilders.withSkillId(skillId);
     this._configureAPIClients(config);
     this._configureDBClients(config);
+    this._addOpeningInterceptor(config);
     this._errorHandler = errorHandler;
+  }
+
+  private _addOpeningInterceptor(config?: TalkyJSSkillConfig) {
+    if (!config) return;
+    const interceptor = createOpningTalkInterceptor(config);
+    if (!interceptor) return;
+    this.addRequestInterceptors(interceptor);
   }
 
   /**
