@@ -229,6 +229,33 @@ describe('SkillFactoryr', () => {
       });
     });
   });
+  describe.skip('openingTalk', () => {
+    beforeEach(() => {
+      requestEnvelope = new RequestEnvelopeFactory(
+        new LaunchRequestFactory()
+      ).getRequest();
+      skill = new SkillFactory({
+        apiClient: {
+          useDefault: true,
+        },
+        opening: {
+          text: 'opening talk is here',
+        },
+      });
+    });
+    it('should execute the skill', async () => {
+      await expect(
+        skill.createLambdaHandler()(requestEnvelope)
+      ).rejects.toMatchObject({
+        name: 'ServiceError',
+        statusCode: 401,
+        response: {
+          type: 'INVALID_AUTHENTICATION_TOKEN',
+          message: 'The authentication token is not valid.',
+        },
+      });
+    });
+  });
   describe('addRequestHandlers', () => {
     beforeEach(() => {
       requestEnvelope = new RequestEnvelopeFactory(

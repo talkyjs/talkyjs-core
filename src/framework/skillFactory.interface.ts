@@ -60,6 +60,10 @@ export interface TalkyJSSkillConfig {
   skillId?: string;
   apiClient?: TalkyJSAPIClientConfig;
   errorHandler?: TalkyJSErrorHandlerConfig;
+  opening?: {
+    ssml?: string;
+    text?: string;
+  };
 }
 
 /**
