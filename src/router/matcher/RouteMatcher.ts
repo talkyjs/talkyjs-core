@@ -2,14 +2,11 @@ import { HandlerInput } from 'ask-sdk-core';
 import { getRequest, isIntentRequestType } from '@ask-utils/core';
 import { Request } from 'ask-sdk-model'; // 'ask-sdk-core/node_modules/ask-sdk-model'
 import { Router } from '../model';
-import {
-  shouldMatchIntentRequest,
-  shouldMatchRequestType,
-  compareCountableSituation,
-} from './helpers';
-import { SituationService } from '../../Situation/Situation.service';
+import { shouldMatchIntentRequest, shouldMatchRequestType } from './helpers';
+import { RouteSituationMatcher } from './SituationMatcher';
 
 type State = string;
+
 export class RouteMatcher<T extends State = State> {
   private readonly input: HandlerInput;
   private readonly request: Request;
@@ -25,6 +22,19 @@ export class RouteMatcher<T extends State = State> {
     if (!this.targetRoute.situation || !this.targetRoute.situation.custom)
       return;
     this.canHandle = await this.targetRoute.situation.custom(this.input);
+  }
+
+  /**
+   * Check the situation
+   * - invocationCount
+   * - turnCount
+   **/
+  private handleRequestSituation() {
+    const situationMatcher = new RouteSituationMatcher(
+      this.input,
+      this.targetRoute
+    );
+    this.canHandle = situationMatcher.handle(this.canHandle);
   }
 
   public async match(): Promise<void> {
@@ -54,30 +64,7 @@ export class RouteMatcher<T extends State = State> {
      * - invocationCount
      * - turnCount
      **/
-    if (this.targetRoute.situation) {
-      const situationMgr = new SituationService(this.input);
-      const situation = situationMgr.getSituation();
-      const currentState = situationMgr.getState();
-      const { invocationCount, turnCount, state } = this.targetRoute.situation;
-      if (state) {
-        this.canHandle = state === currentState;
-      }
-      if (invocationCount) {
-        const compareByInvocationCount = compareCountableSituation(
-          invocationCount,
-          situation.invocationNumber
-        );
-        if (compareByInvocationCount)
-          this.canHandle = compareByInvocationCount === 'true';
-      }
-      if (turnCount) {
-        const compareByTurnCount = compareCountableSituation(
-          turnCount,
-          situation.turnCount
-        );
-        if (compareByTurnCount) this.canHandle = compareByTurnCount === 'true';
-      }
-    }
+    this.handleRequestSituation();
     /**/
 
     /**
