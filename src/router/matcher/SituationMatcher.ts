@@ -36,10 +36,10 @@ export class RouteSituationMatcher<T extends State = State> {
   }
 
   /**
-   * check the state
+   * check the invocation count
    * __talkyjs: {
    *     sessionSituation: {
-   *         state
+   *         invocation count
    *     }
    * }
    * @param canHandle
@@ -59,6 +59,15 @@ export class RouteSituationMatcher<T extends State = State> {
     return canHandle;
   }
 
+  /**
+   * check the turn count
+   * __talkyjs: {
+   *     sessionSituation: {
+   *         turn count
+   *     }
+   * }
+   * @param canHandle
+   */
   public handleByTurnCount(canHandle: boolean) {
     if (!this.targetRoute.situation) return canHandle;
     const { turnCount } = this.targetRoute.situation;
