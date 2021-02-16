@@ -1,3 +1,19 @@
+# [1.1.0](https://github.com/talkyjs/talkyjs-core/compare/v1.0.3...v1.1.0) (2021-01-28)
+
+
+### Features
+
+* add a new interceptor (Opening talk) ([bc9a03c](https://github.com/talkyjs/talkyjs-core/commit/bc9a03c9f9648fed0c16a7130c802e7c0f48514b))
+
+# [1.1.0](https://github.com/talkyjs/talkyjs-core/compare/v1.0.3...v1.1.0) (2021-01-28)
+
+
+### Features
+
+* add a new interceptor (Opening talk) ([bc9a03c](https://github.com/talkyjs/talkyjs-core/commit/bc9a03c9f9648fed0c16a7130c802e7c0f48514b))
+
+
+
 ## [1.0.3](https://github.com/talkyjs/talkyjs-core/compare/v1.0.2...v1.0.3) (2021-01-04)
 
 
