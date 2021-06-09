@@ -84,6 +84,6 @@
     "ask-sdk-model": "^1.28.0",
     "ask-sdk-s3-persistence-adapter": "^2.8.0",
     "moment": "^2.27.0",
-    "tslog": "^2.5.0"
+    "tslog": "^3.0.0"
   }
 }
