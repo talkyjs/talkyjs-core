@@ -67,7 +67,7 @@
     "@ask-utils/test": "3.11.0",
     "@commitlint/cli": "12.1.4",
     "@commitlint/config-conventional": "12.1.4",
-    "@release-it/conventional-changelog": "2.0.1",
+    "@release-it/conventional-changelog": "7.0.2",
     "conventional-changelog-cli": "2.1.1",
     "husky": "6.0.0",
     "lint-staged": "10.5.4",
