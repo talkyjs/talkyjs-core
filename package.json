@@ -65,8 +65,8 @@
   "module": "dist/core.esm.js",
   "devDependencies": {
     "@ask-utils/test": "3.11.0",
-    "@commitlint/cli": "12.1.4",
-    "@commitlint/config-conventional": "12.1.4",
+    "@commitlint/cli": "19.5.0",
+    "@commitlint/config-conventional": "19.5.0",
     "@release-it/conventional-changelog": "2.0.1",
     "conventional-changelog-cli": "2.1.1",
     "husky": "6.0.0",
